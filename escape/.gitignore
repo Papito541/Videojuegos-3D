@@ -1,0 +1,91 @@
+# ===================================
+# Unity - archivos y carpetas a ignorar
+# ===================================
+
+# Carpetas generadas por Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+MemoryCaptures/
+
+# Cache de compilación
+sysinfo.txt
+
+# Archivos de VS/Mono/Consulo
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Archivos de compilación/exportación
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+*.app
+*.exe
+*.xcodeproj
+
+# Crashlytics
+crashlytics-build.properties
+
+# TestRunner
+InitTestScene*.unity*
+
+# Addressables
+/ServerData
+/[Aa]ssets/StreamingAssets/aa*
+/[Aa]ssets/AddressableAssetsData/link.xml*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+# Visual Scripting
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+
+# ===================================
+# Git LFS - extensiones grandes
+# ===================================
+# Modelos 3D
+*.fbx
+*.obj
+*.blend
+*.3ds
+
+# Texturas y assets pesados
+*.psd
+*.tga
+*.png
+*.jpg
+
+# Audio/Video
+*.wav
+*.mp3
+*.ogg
+*.mp4
+
+# Datos de Unity que pueden ser muy pesados
+*.asset
+*.prefab
+*.unity
+*.anim
