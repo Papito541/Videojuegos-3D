@@ -1,9 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\unityprojects\\escape\\",
+  "WorkspaceRootPath": "C:\\Users\\INTEL\\OneDrive\\Documentos\\GitHub\\Videojuegos-3D\\escape\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F01B5E8B-A861-567A-6356-A85489D39DBB}|Assembly-CSharp.csproj|c:\\unityprojects\\escape\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{203BCC0A-7B82-DA1E-1D19-B1212146927D}|Unity.RenderPipelines.Universal.Shaders.csproj|c:\\users\\intel\\onedrive\\documentos\\github\\videojuegos-3d\\escape\\library\\packagecache\\com.unity.render-pipelines.universal@82fb1398b3b8\\shaders\\terrain\\terrainlit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{203BCC0A-7B82-DA1E-1D19-B1212146927D}|Unity.RenderPipelines.Universal.Shaders.csproj|solutionrelative:library\\packagecache\\com.unity.render-pipelines.universal@82fb1398b3b8\\shaders\\terrain\\terrainlit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01B5E8B-A861-567A-6356-A85489D39DBB}|Assembly-CSharp.csproj|C:\\Users\\INTEL\\OneDrive\\Documentos\\GitHub\\Videojuegos-3D\\escape\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F01B5E8B-A861-567A-6356-A85489D39DBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,15 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "C:\\unityprojects\\escape\\Assets\\scripts\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\PlayerController.cs",
-              "ToolTip": "C:\\unityprojects\\escape\\Assets\\scripts\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\scripts\\PlayerController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwDAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T13:32:51.537Z",
+              "Title": "TerrainLit.shader",
+              "DocumentMoniker": "C:\\Users\\INTEL\\OneDrive\\Documentos\\GitHub\\Videojuegos-3D\\escape\\Library\\PackageCache\\com.unity.render-pipelines.universal@82fb1398b3b8\\Shaders\\Terrain\\TerrainLit.shader",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@82fb1398b3b8\\Shaders\\Terrain\\TerrainLit.shader",
+              "ToolTip": "C:\\Users\\INTEL\\OneDrive\\Documentos\\GitHub\\Videojuegos-3D\\escape\\Library\\PackageCache\\com.unity.render-pipelines.universal@82fb1398b3b8\\Shaders\\Terrain\\TerrainLit.shader",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@82fb1398b3b8\\Shaders\\Terrain\\TerrainLit.shader",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-09-17T23:38:06.153Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\INTEL\\OneDrive\\Documentos\\GitHub\\Videojuegos-3D\\escape\\Assets\\scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\INTEL\\OneDrive\\Documentos\\GitHub\\Videojuegos-3D\\escape\\Assets\\scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\scripts\\PlayerController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:32:51.537Z"
             }
           ]
         }

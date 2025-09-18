@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     public float sueloDistant = 0.1f;
     public LayerMask sueloMask;
 
-    // Update is called once per frame
+    private float velocidadActual;
+    private float rotacionActual;
+
     void Update()
     {
         x = Input.GetAxis("Horizontal");
@@ -38,17 +40,13 @@ public class PlayerController : MonoBehaviour
         bool corriendo = !agachado && Input.GetKey(KeyCode.LeftControl) && y > 0;
 
         // Velocidad actual
-        float velocidadActual = agachado ? velocidadCrouch : (corriendo ? velocidadRun : velocidadWalk);
-        float RotacionActual = corriendo ? rotacionSpeedRun : rotacionSpeedWalk;
-
-        // Movimiento hacia adelante/atrás
-        transform.Translate(0, 0, y * Time.deltaTime * velocidadActual);
-        transform.Rotate(0, x * Time.deltaTime * RotacionActual, 0);
+        velocidadActual = agachado ? velocidadCrouch : (corriendo ? velocidadRun : velocidadWalk);
+        rotacionActual = corriendo ? rotacionSpeedRun : rotacionSpeedWalk;
 
         if (Input.GetKeyDown(KeyCode.Space) && enSuelo && !agachado)
         {
             animator.SetTrigger("saltar");
-            Invoke("Saltar", 0.3f); // pequeño delay opcional
+            Invoke("Saltar", 0.3f);
         }
 
         // Animaciones
@@ -57,8 +55,20 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("correr", corriendo);
         animator.SetBool("enSuelo", enSuelo);
     }
+
+    void FixedUpdate()
+    {
+        // Movimiento físico
+        Vector3 movimiento = transform.forward * y * velocidadActual * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + movimiento);
+
+        // Rotación física
+        Quaternion rot = Quaternion.Euler(0, x * rotacionActual * Time.fixedDeltaTime, 0);
+        rb.MoveRotation(rb.rotation * rot);
+    }
+
     void Saltar()
     {
         rb.AddForce(Vector3.up * Mathf.Sqrt(saltoHeigth * -2f * Physics.gravity.y), ForceMode.Impulse);
     }
-}   
+}
