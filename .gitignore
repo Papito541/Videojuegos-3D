@@ -1,8 +1,6 @@
 # ===================================
-# Unity - archivos y carpetas a ignorar
+# Unity - Carpetas a ignorar
 # ===================================
-
-# Carpetas generadas por Unity
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -10,11 +8,17 @@
 [Bb]uilds/
 [Ll]ogs/
 MemoryCaptures/
+UserSettings/
 
-# Cache de compilación
-sysinfo.txt
+# Evitar archivos del cache y temporales de Addressables y Visual Scripting
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/Unity.VisualScripting.Generated/
 
-# Archivos de VS/Mono/Consulo
+# ===================================
+# IDEs y archivos de proyecto locales
+# ===================================
+.vs/
+.idea/
 *.csproj
 *.unityproj
 *.sln
@@ -29,63 +33,55 @@ sysinfo.txt
 *.mdb
 *.opendb
 *.VC.db
+*.asset
 
-# Unity3D generated meta files
+# Unity generated meta files innecesarios
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
 
-# Archivos de compilación/exportación
+# ===================================
+# Exportaciones (Builds)
+# ===================================
 *.apk
 *.aab
 *.unitypackage
-*.unitypackage.meta
 *.app
 *.exe
-*.xcodeproj
 
+# ===================================
 # Crashlytics
+# ===================================
 crashlytics-build.properties
 
-# TestRunner
-InitTestScene*.unity*
+# ===================================
+# Sistema Operativo
+# ===================================
+# Windows
+Thumbs.db
+Desktop.ini
 
-# Addressables
-/ServerData
-/[Aa]ssets/StreamingAssets/aa*
-/[Aa]ssets/AddressableAssetsData/link.xml*
-/[Aa]ssets/Addressables_Temp*
-/[Aa]ssets/AddressableAssetsData/*/*.bin*
+# macOS
+.DS_Store
+._*
 
-# Visual Scripting
-/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
-/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
-/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
-/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+# Linux
+*~
 
 # ===================================
-# Git LFS - extensiones grandes
+# Archivos grandes (opcional: Git LFS)
 # ===================================
-# Modelos 3D
-*.fbx
-*.obj
-*.blend
-*.3ds
-
-# Texturas y assets pesados
-*.psd
-*.tga
-*.png
-*.jpg
-
-# Audio/Video
-*.wav
-*.mp3
-*.ogg
-*.mp4
-
-# Datos de Unity que pueden ser muy pesados
-*.asset
-*.prefab
-*.unity
-*.anim
+# Si usas Git LFS, descomenta las extensiones que quieras versionar externamente.
+# Por defecto, las dejamos dentro del repositorio.
+#*.fbx
+#*.obj
+#*.blend
+#*.3ds
+#*.psd
+#*.tga
+#*.png
+#*.jpg
+#*.wav
+#*.mp3
+#*.ogg
+#*.mp4
