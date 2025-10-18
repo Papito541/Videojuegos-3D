@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1f8833ce120e36c48981e1403cb9a878
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 5368
+  packageName: 'Modern Sports Car 10 '
+  packageVersion: 1.1
+  assetPath: Assets/Car10/FBX/Materials/Car10mat.mat
+  uploadId: 27148
