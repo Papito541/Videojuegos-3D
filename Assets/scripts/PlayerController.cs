@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("VelY", y);
         animator.SetBool("correr", corriendo);
         animator.SetBool("enSuelo", enSuelo);
+
     }
 
     void FixedUpdate()
