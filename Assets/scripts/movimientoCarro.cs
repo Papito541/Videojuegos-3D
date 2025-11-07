@@ -76,11 +76,6 @@ public class movimientoCarro : MonoBehaviour
         }
     }
 
-    float NuevosAxis(string direccion)
-    {
-        return (Input.GetAxis(direccion));
-    }
-
     void AplicarFreno(float fuerza)
     {
         llantaDelanteraIzq.brakeTorque = fuerza;
