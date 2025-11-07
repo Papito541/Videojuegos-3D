@@ -28,7 +28,6 @@ public class policiasControl : MonoBehaviour
     {
         if (persiguiendo)
         {
-            // Continuar persiguiendo solo si el jugador sigue dentro del rango y ángulo
             if (JugadorVisible())
             {
                 agente.SetDestination(jugador.position);
@@ -36,7 +35,6 @@ public class policiasControl : MonoBehaviour
             }
             else
             {
-                // Si el jugador se escapa, volver a patrulla
                 persiguiendo = false;
                 IniciarPatrulla();
             }
