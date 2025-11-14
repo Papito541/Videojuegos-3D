@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SocialPlatforms;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,11 +11,15 @@ public class PlayerController : MonoBehaviour
     public float rotacionSpeedWalk = 60;
     public float rotacionSpeedRun = 120;
     public Animator animator;
+    public Transform playerBody;
 
     private float x, y;
     private bool enSuelo;
     private bool agachado;
     CapsuleCollider col;
+
+    public int vidaMaxima = 3;
+    private int vidaActual;
 
     public Rigidbody rb;
     public float saltoHeigth = 1;
@@ -24,25 +29,13 @@ public class PlayerController : MonoBehaviour
     private float velocidadActual;
     private float rotacionActual;
 
-    public int vidaMaxima = 3;
-    private int vidaActual;
-
-    public Image[] corazones;
-    public Sprite corazonLleno;
-    public Sprite corazonVacio;
-
     public bool invulnerable = false;  
     public float tiempoInvulnerable = 1f;
-    public GameObject panelCorazones;
 
     void Start()
     {
         col = GetComponent<CapsuleCollider>();
-        if (panelCorazones != null)
-            panelCorazones.SetActive(false);
-
         vidaActual = vidaMaxima;
-        ActualizarCorazones();
     }
 
     void Update()
@@ -77,11 +70,14 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 movimiento = transform.forward * y * velocidadActual * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + movimiento);
+        Vector3 direccion = playerBody.forward * y + playerBody.right * x;
 
-        Quaternion rot = Quaternion.Euler(0, x * rotacionActual * Time.fixedDeltaTime, 0);
-        rb.MoveRotation(rb.rotation * rot);
+        // Evitar que corra más rápido en diagonal
+        direccion.Normalize();
+
+        // Movimiento usando Rigidbody
+        Vector3 movimiento = direccion * velocidadActual * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + movimiento);
     }
 
     void Saltar()
@@ -93,14 +89,14 @@ public class PlayerController : MonoBehaviour
     {
         if (invulnerable) return; // No recibe daño si está invulnerable
 
-        vidaActual--;
-        if (vidaActual < 0) vidaActual = 0;
+        Global.vidas -=1;
+        if (Global.vidas < 0)
+            Global.vidas = 0;
 
-        ActualizarCorazones();
-
-        if (vidaActual == 0)
+        if (Global.vidas == 0)
         {
-            Morir();
+            Debug.Log("Jugador muerto");
+            // Aquí llamas a GameOver si quieres
         }
         else
         {
@@ -113,14 +109,6 @@ public class PlayerController : MonoBehaviour
         invulnerable = true;
         yield return new WaitForSeconds(tiempoInvulnerable);
         invulnerable = false;
-    }
-
-    void ActualizarCorazones()
-    {
-        for (int i = 0; i < corazones.Length; i++)
-        {
-            corazones[i].sprite = i < vidaActual ? corazonLleno : corazonVacio;
-        }
     }
 
     void Morir()

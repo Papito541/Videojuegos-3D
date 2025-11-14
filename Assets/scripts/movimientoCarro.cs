@@ -14,6 +14,7 @@ public class movimientoCarro : MonoBehaviour
     public float velocidadMax = 150f; // km/h
     public float anguloGiro = 25f;
     public float fuerzaFreno = 3000f;
+    public float frenoLigero = 200f;
 
     private bool frenando;
     private Rigidbody rb;

@@ -1,13 +1,15 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
+using UnityEngine.UI;
 
 public class nextLevel : MonoBehaviour
 {
     private bool isPaused = false;
-
     void Update()
     {
         // Si se presiona la tecla P, alterna el estado de pausa
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
         }

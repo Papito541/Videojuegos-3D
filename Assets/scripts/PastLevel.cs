@@ -5,11 +5,12 @@ public class PastLevel : MonoBehaviour
 {
 
     // Si usas colisiones tipo "trigger", cambia el método:
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-                int escenaActual = SceneManager.GetActiveScene().buildIndex;
+            Debug.Log("Jugador ha muerto");
+            int escenaActual = SceneManager.GetActiveScene().buildIndex;
                 SceneManager.LoadScene(escenaActual + 1);
         }
     }
