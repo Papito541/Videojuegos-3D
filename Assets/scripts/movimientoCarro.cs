@@ -2,81 +2,94 @@
 
 public class movimientoCarro : MonoBehaviour
 {
+    [Header("Wheel Colliders")]
     public WheelCollider llantaDelanteraIzq;
     public WheelCollider llantaDelanteraDer;
     public WheelCollider llantaTraseraIzq;
     public WheelCollider llantaTraseraDer;
-    public Transform neumatico1;
-    public Transform neumatico2;
 
-    public float aceleracion = 1200f;
-    public float velocidad;
-    public float velocidadMax = 150f; // km/h
-    public float anguloGiro = 25f;
-    public float fuerzaFreno = 3000f;
-    public float frenoLigero = 200f;
+    [Header("Ruedas visuales")]
+    public Transform neumaticoFL;
+    public Transform neumaticoFR;
+    public Transform neumaticoRL;
+    public Transform neumaticoRR;
 
-    private bool frenando;
+    [Header("Parametros")]
+    public float aceleracion = 1500f;
+    public float freno = 2000f;
+    public float velocidadMax = 200f;
+
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = new Vector3(0, -0.9f, 0);
+        rb.centerOfMass = new Vector3(0, -0.6f, 0);
+
+        AjustarFriccion(llantaDelanteraIzq);
+        AjustarFriccion(llantaDelanteraDer);
+        AjustarFriccion(llantaTraseraIzq);
+        AjustarFriccion(llantaTraseraDer);
+
+        ConfigurarSuspension(llantaDelanteraIzq);
+        ConfigurarSuspension(llantaDelanteraDer);
+        ConfigurarSuspension(llantaTraseraIzq);
+        ConfigurarSuspension(llantaTraseraDer);
     }
 
     void Update()
     {
-        // Freno manual
-        frenando = Input.GetKey(KeyCode.Space);
-
-        // Calcular velocidad actual
-        velocidad = rb.linearVelocity.magnitude * 3.6f; // m/s a km/h
-        velocidad = Mathf.Round(velocidad);
-
-        // Girar visualmente las llantas delanteras
-        neumatico1.localEulerAngles = new Vector3(0, llantaDelanteraDer.steerAngle * 2, 0);
-        neumatico2.localEulerAngles = new Vector3(0, llantaDelanteraIzq.steerAngle * 2, 0);
+        ActualizarRuedas();
     }
 
     void FixedUpdate()
     {
-        float movimiento = Input.GetAxis("Vertical");
+        bool enSuelo =
+            llantaDelanteraIzq.isGrounded ||
+            llantaDelanteraDer.isGrounded ||
+            llantaTraseraIzq.isGrounded ||
+            llantaTraseraDer.isGrounded;
+        float acelerador = Input.GetAxis("Vertical");
         float giro = Input.GetAxis("Horizontal");
+        bool frenando = Input.GetKey(KeyCode.Space);
+        float velocidad = rb.linearVelocity.magnitude;
+        float anguloGiro = Mathf.Lerp(25f, 8f, velocidad / 50f);
+        float velocidadKmh = rb.linearVelocity.magnitude * 3.6f;
 
-        // Dirección
-        llantaDelanteraIzq.steerAngle = anguloGiro * giro;
-        llantaDelanteraDer.steerAngle = anguloGiro * giro;
-
-        // Freno automático o manual
-        if (frenando || Mathf.Abs(movimiento) < 0.1f)
+        if (enSuelo)
         {
-            AplicarFreno(fuerzaFreno);
-            QuitarAceleracion();
+            // motor
+            if (velocidadKmh < velocidadMax)
+            {
+                llantaTraseraIzq.motorTorque = aceleracion * acelerador;
+                llantaTraseraDer.motorTorque = aceleracion * acelerador;
+            }
+            else
+            {
+                llantaTraseraIzq.motorTorque = 0;
+                llantaTraseraDer.motorTorque = 0;
+            }
+
+            llantaDelanteraIzq.steerAngle = anguloGiro * giro;
+            llantaDelanteraDer.steerAngle = anguloGiro * giro;
+        }
+        else
+        {
+            llantaTraseraIzq.motorTorque = 0;
+            llantaTraseraDer.motorTorque = 0;
+            llantaDelanteraIzq.steerAngle = 0;
+            llantaDelanteraDer.steerAngle = 0;
+        }
+
+        if (frenando || acelerador == 0)
+        {
+            AplicarFreno(freno);
         }
         else
         {
             QuitarFreno();
-
-            // --- Límite de velocidad real ---
-            if (velocidad < velocidadMax)
-            {
-                llantaTraseraIzq.motorTorque = aceleracion * movimiento;
-                llantaTraseraDer.motorTorque = aceleracion * movimiento;
-            }
-            else
-            {
-                QuitarAceleracion();
-
-                // Si la velocidad supera el límite, reducirla poco a poco
-                if (rb.linearVelocity.magnitude * 3.6f > velocidadMax)
-                {
-                    rb.linearVelocity = rb.linearVelocity.normalized * (velocidadMax / 3.6f);
-                }
-            }
         }
     }
-
     void AplicarFreno(float fuerza)
     {
         llantaDelanteraIzq.brakeTorque = fuerza;
@@ -93,9 +106,45 @@ public class movimientoCarro : MonoBehaviour
         llantaTraseraDer.brakeTorque = 0;
     }
 
-    void QuitarAceleracion()
+    void ActualizarRuedas()
     {
-        llantaTraseraIzq.motorTorque = 0;
-        llantaTraseraDer.motorTorque = 0;
+        ActualizarRuedaVisual(llantaDelanteraIzq, neumaticoFL);
+        ActualizarRuedaVisual(llantaDelanteraDer, neumaticoFR);
+        ActualizarRuedaVisual(llantaTraseraIzq, neumaticoRL);
+        ActualizarRuedaVisual(llantaTraseraDer, neumaticoRR);
+    }
+
+    void ActualizarRuedaVisual(WheelCollider col, Transform mesh)
+    {
+        Vector3 pos;
+        Quaternion rot;
+        col.GetWorldPose(out pos, out rot);
+
+        mesh.position = pos;
+        mesh.rotation = rot;
+    }
+
+    void AjustarFriccion(WheelCollider wheel)
+    {
+        WheelFrictionCurve sideways = wheel.sidewaysFriction;
+        sideways.stiffness = 2.0f;
+        wheel.sidewaysFriction = sideways;
+
+        WheelFrictionCurve forward = wheel.forwardFriction;
+        forward.stiffness = 1.5f;
+        wheel.forwardFriction = forward;
+    }
+
+    void ConfigurarSuspension(WheelCollider wheel)
+    {
+        JointSpring spring = wheel.suspensionSpring;
+
+        spring.spring = 35000f; 
+        spring.damper = 4500f;   
+        spring.targetPosition = 0.5f;
+
+        wheel.suspensionSpring = spring;
+
+        wheel.suspensionDistance = 0.25f; 
     }
 }

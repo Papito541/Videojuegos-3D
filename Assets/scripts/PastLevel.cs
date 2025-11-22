@@ -1,13 +1,12 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PastLevel : MonoBehaviour
 {
 
-    // Si usas colisiones tipo "trigger", cambia el método:
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("PlayerCar"))
         {
             Debug.Log("Jugador ha muerto");
             int escenaActual = SceneManager.GetActiveScene().buildIndex;

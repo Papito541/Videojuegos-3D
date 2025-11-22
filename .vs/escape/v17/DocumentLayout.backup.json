@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\unityprojects\\Videojuego-3D\\escape\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F01B5E8B-A861-567A-6356-A85489D39DBB}|Assembly-CSharp.csproj|c:\\unityprojects\\videojuego-3d\\escape\\assets\\scripts\\movimientocarro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F01B5E8B-A861-567A-6356-A85489D39DBB}|Assembly-CSharp.csproj|c:\\unityprojects\\videojuego-3d\\escape\\assets\\scripts\\aicarpersecution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01B5E8B-A861-567A-6356-A85489D39DBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\aicarpersecution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01B5E8B-A861-567A-6356-A85489D39DBB}|Assembly-CSharp.csproj|C:\\unityprojects\\Videojuego-3D\\escape\\assets\\scripts\\movimientocarro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F01B5E8B-A861-567A-6356-A85489D39DBB}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\movimientocarro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -43,19 +47,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AICarPersecution.cs",
+              "DocumentMoniker": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\AICarPersecution.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\AICarPersecution.cs",
+              "ToolTip": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\AICarPersecution.cs",
+              "RelativeToolTip": "Assets\\scripts\\AICarPersecution.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T00:25:59.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "movimientoCarro.cs",
               "DocumentMoniker": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\movimientoCarro.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\movimientoCarro.cs",
               "ToolTip": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\movimientoCarro.cs",
               "RelativeToolTip": "Assets\\scripts\\movimientoCarro.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAkwGUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAmwA4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:40:17.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:40:17.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "lucesPoli.cs",
               "DocumentMoniker": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\lucesPoli.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\lucesPoli.cs",
@@ -67,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "policiasControl.cs",
               "DocumentMoniker": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\policiasControl.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\policiasControl.cs",
@@ -79,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TutorialManager.cs",
               "DocumentMoniker": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\TutorialManager.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TutorialManager.cs",
@@ -91,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TransitionManager.cs",
               "DocumentMoniker": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\TransitionManager.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TransitionManager.cs",
@@ -103,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\MainMenu.cs",
@@ -115,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\unityprojects\\Videojuego-3D\\escape\\Assets\\scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\PlayerController.cs",
