@@ -16,6 +16,8 @@ public class policiasControl : MonoBehaviour
     private int destinoActual = 0;
     private bool esperando = false;
     private bool persiguiendo = false;
+    public float velocidadPatrulla = 3.5f;
+    public float velocidadPersecucion = 6f;
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class policiasControl : MonoBehaviour
             if (JugadorVisible())
             {
                 agente.SetDestination(jugador.position);
+                agente.speed = velocidadPersecucion;
                 anim.SetFloat("velocidad", agente.velocity.magnitude);
             }
             else
@@ -57,6 +60,7 @@ public class policiasControl : MonoBehaviour
         if (JugadorVisible())
         {
             persiguiendo = true;
+            agente.speed = velocidadPersecucion;
         }
     }
 
@@ -112,6 +116,7 @@ public class policiasControl : MonoBehaviour
 
     void IniciarPatrulla()
     {
+        agente.speed = velocidadPatrulla;
         agente.isStopped = false;
         agente.SetDestination(waypoints[destinoActual].position);
     }
